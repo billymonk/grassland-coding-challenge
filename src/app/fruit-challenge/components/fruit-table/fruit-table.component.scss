@@ -9,3 +9,29 @@
   width: 100%;
   justify-content: center;
 }
+
+.mat-table {
+  .mat-mdc-row {
+    .mat-mdc-cell:last-child {
+      text-align: right;
+    }
+  }
+
+  .mat-mdc-header-row {
+    .mat-mdc-header-cell:last-child {
+      text-align: right;
+    }
+  }
+}
+
+.even-row {
+  background-color: #FFFFFF;
+}
+
+.odd-row {
+  background-color: #FAFAFA;
+}
+
+.highlight-row {
+  background-color: #31BF5D;
+}
