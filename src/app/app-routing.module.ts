@@ -16,6 +16,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import {FruitDetailDialogComponent} from './fruit-challenge/components/fruit-detail-dialog/fruit-detail-dialog.component';
 
 import {MessagingComponent} from './messaging-challenge/components/messaging/messaging.component';
 
@@ -53,11 +55,13 @@ const routes: Routes = [
     MatDividerModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   exports: [RouterModule],
   declarations: [
     FruitTableComponent,
+    FruitDetailDialogComponent
   ]
 })
 export class AppRoutingModule {

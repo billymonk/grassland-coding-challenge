@@ -48,7 +48,8 @@
                                 'even-row': i % 2 === 0,
                                 'odd-row': i % 2 !== 0,
                                 'highlight-row': myRowData.nutritions.calories <= 50 && myRowData.nutritions.sugar >= 8
-                            }"></tr>
+                            }"
+                            (click)="openFruitDetails(myRowData)"></tr>
                     </table>
                     <div class="loading-spinner-container" *ngIf="!!(viewModel.loadingFruit$|async)">
                         <mat-progress-spinner mode="indeterminate" color="primary"></mat-progress-spinner>
