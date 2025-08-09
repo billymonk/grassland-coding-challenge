@@ -6,10 +6,30 @@
                     <mat-card-title>Grassland Ventures Fruit Database:</mat-card-title>
                 </mat-card-header>
                 <mat-card-content>
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-form-field>
+                                <mat-label>Filter</mat-label>
+                                <input matInput (keyup)="viewModel.filterFruit($event)" placeholder="Ex. Apple">
+                            </mat-form-field>
+                        </div>
+                        <div class="col-6">
+                            <mat-form-field>
+                                  <mat-label>Sort</mat-label>
+                                  <mat-select (selectionChange)="viewModel.sortFruit($event.value)">
+                                      <mat-option *ngFor="let sort of viewModel.sortOptions" [value]="sort.value">
+                                          {{sort.viewValue}}
+                                      </mat-option>
+                                  </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
                     <table class="mat-table" mat-table [dataSource]="viewModel.fruitData$">
                         <mat-text-column name="name"></mat-text-column>
                         <mat-text-column name="id"></mat-text-column>
                         <mat-text-column name="genus"></mat-text-column>
+                        <mat-text-column name="family"></mat-text-column>
+                        <mat-text-column name="order"></mat-text-column>
                         <ng-container matColumnDef="calories">
                             <th mat-header-cell *matHeaderCellDef> Calories</th>
                             <td mat-cell *matCellDef="let fruit"> {{fruit.nutritions.calories}} </td>
