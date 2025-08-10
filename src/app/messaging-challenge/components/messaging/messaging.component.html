@@ -1,7 +1,10 @@
 <div class="container">
   <div class="fake-phone">
     <ng-container *ngFor="let messageObject of messages$ | async">
-      <app-text-message *ngIf="isTextMessage(messageObject)" [message]="messageObject"></app-text-message>
+      <ng-container [ngSwitch]="true">
+        <app-text-message *ngSwitchCase="isTextMessage(messageObject)" [message]="messageObject"></app-text-message>
+        <app-image-message *ngSwitchCase="isImageMessage(messageObject)" [message]="messageObject"></app-image-message>
+      </ng-container>
     </ng-container>
   </div>
 </div>

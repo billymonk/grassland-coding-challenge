@@ -1,0 +1,47 @@
+.message-container {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 8px;
+
+  .profile-picture {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .message-content {
+    border-radius: 8px;
+    word-wrap: break-word;
+
+    .message-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &.from-anna {
+    justify-content: flex-end;
+    .profile-picture {
+      order: 2;
+      margin-left: 10px;
+    }
+    .message-content {
+      background-color: #4267B2;
+      color: white;
+    }
+  }
+
+  &.from-other {
+    justify-content: flex-start;
+    .profile-picture {
+      order: 0;
+      margin-right: 10px;
+    }
+    .message-content {
+      background-color: #8D8E91;
+      color: white;
+    }
+  }
+}

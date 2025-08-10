@@ -13,8 +13,4 @@ export class TextMessageComponent extends BaseMessageComponent {
   constructor() {
     super();
   }
-
-  isFromAnna(): boolean {
-    return this.message.from === 'Anna';
-  }
 }

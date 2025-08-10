@@ -6,4 +6,8 @@ export abstract class BaseMessageComponent {
 
   @Input() message: Message;
 
+  isFromAnna(): boolean {
+    return this.message.from === 'Anna';
+  }
+
 }

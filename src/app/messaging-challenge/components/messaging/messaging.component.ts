@@ -3,6 +3,7 @@ import { MessagingService } from '../../services/messaging.service';
 import { Observable } from 'rxjs';
 import { Message } from '../../models/message';
 import { TextMessage } from '../../models/text-message';
+import { ImageMessage } from '../../models/image-message';
 
 @Component({
   selector: 'app-messaging',
@@ -18,5 +19,9 @@ export class MessagingComponent {
 
   isTextMessage(message: Message): message is TextMessage {
     return message instanceof TextMessage;
+  }
+
+  isImageMessage(message: Message): message is ImageMessage {
+    return message instanceof ImageMessage;
   }
 }
