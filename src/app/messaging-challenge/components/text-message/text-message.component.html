@@ -1,0 +1,6 @@
+<div class="message-container" [ngClass]="{'from-anna': isFromAnna(), 'from-other': !isFromAnna()}">
+  <img [src]="message.profilePictureUrl" class="profile-picture">
+  <div class="message-content">
+    <p>{{ message.content }}</p>
+  </div>
+</div>
