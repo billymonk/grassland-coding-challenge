@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MessagingService } from '../../services/messaging.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Message } from '../../models/message';
 import { TextMessage } from '../../models/text-message';
 import { ImageMessage } from '../../models/image-message';
@@ -10,11 +10,20 @@ import { ImageMessage } from '../../models/image-message';
   templateUrl: './messaging.component.html',
   styleUrls: ['./messaging.component.scss']
 })
-export class MessagingComponent {
-  messages$: Observable<Message[]>;
+export class MessagingComponent implements OnDestroy {
+  public messages: Message[] = [];
+  private messageSubscription: Subscription;
 
   constructor(private messagingService: MessagingService) {
-    this.messages$ = this.messagingService.messages$;
+    this.messageSubscription = this.messagingService.messages$.subscribe(message => {
+      this.messages.push(message);
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.messageSubscription) {
+      this.messageSubscription.unsubscribe();
+    }
   }
 
   isTextMessage(message: Message): message is TextMessage {
