@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MessagingService } from '../../services/messaging.service';
 import { Observable } from 'rxjs';
 import { Message } from '../../models/message';
+import { TextMessage } from '../../models/text-message';
 
 @Component({
   selector: 'app-messaging',
@@ -13,5 +14,9 @@ export class MessagingComponent {
 
   constructor(private messagingService: MessagingService) {
     this.messages$ = this.messagingService.messages$;
+  }
+
+  isTextMessage(message: Message): message is TextMessage {
+    return message instanceof TextMessage;
   }
 }

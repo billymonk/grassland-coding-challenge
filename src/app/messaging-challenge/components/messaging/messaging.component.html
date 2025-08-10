@@ -1,5 +1,7 @@
 <div class="container">
   <div class="fake-phone">
-    <app-text-message *ngFor="let messageObject of messages$ | async" [message]="messageObject"></app-text-message>
+    <ng-container *ngFor="let messageObject of messages$ | async">
+      <app-text-message *ngIf="isTextMessage(messageObject)" [message]="messageObject"></app-text-message>
+    </ng-container>
   </div>
 </div>
