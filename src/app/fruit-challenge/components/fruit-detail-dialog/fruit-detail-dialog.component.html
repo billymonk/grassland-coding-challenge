@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>{{ (fruit$ | async)?.name }}</h2>
+
+<mat-dialog-content>
+  <p><strong>ID:</strong> {{ (fruit$ | async)?.id }}</p>
+  <p><strong>Genus:</strong> {{ (fruit$ | async)?.genus }}</p>
+  <p><strong>Family:</strong> {{ (fruit$ | async)?.family }}</p>
+  <p><strong>Order:</strong> {{ (fruit$ | async)?.order }}</p>
+
+  <h3>Nutritional Information:</h3>
+  <ul>
+    <li><strong>Carbohydrates:</strong> {{ (fruit$ | async)?.nutritions.carbohydrates }}g</li>
+    <li><strong>Protein:</strong> {{ (fruit$ | async)?.nutritions.protein }}g</li>
+    <li><strong>Fat:</strong> {{ (fruit$ | async)?.nutritions.fat }}g</li>
+    <li><strong>Calories:</strong> {{ (fruit$ | async)?.nutritions.calories }}kcal</li>
+    <li><strong>Sugar:</strong> {{ (fruit$ | async)?.nutritions.sugar }}g</li>
+  </ul>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close (click)="close()">Close</button>
+</mat-dialog-actions>
